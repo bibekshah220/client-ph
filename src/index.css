@@ -1,0 +1,294 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nepal Pharmacy Management System - Design System
+   Professional medical/pharmacy aesthetic with deep teal primary
+   All colors MUST be HSL
+*/
+
+@layer base {
+  :root {
+    /* Primary: Deep Teal - Medical Trust */
+    --background: 180 20% 99%;
+    --foreground: 180 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 180 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 180 50% 10%;
+
+    /* Primary Teal */
+    --primary: 173 58% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft Teal */
+    --secondary: 173 30% 94%;
+    --secondary-foreground: 173 58% 25%;
+
+    /* Muted */
+    --muted: 180 15% 95%;
+    --muted-foreground: 180 10% 45%;
+
+    /* Accent - Warm amber for alerts/highlights */
+    --accent: 38 92% 50%;
+    --accent-foreground: 38 92% 15%;
+
+    /* Destructive - For expired/critical alerts */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - For in-stock/valid */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Low stock */
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 15%;
+
+    --border: 180 20% 88%;
+    --input: 180 20% 88%;
+    --ring: 173 58% 39%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 173 45% 18%;
+    --sidebar-foreground: 180 20% 95%;
+    --sidebar-primary: 173 58% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 173 40% 25%;
+    --sidebar-accent-foreground: 180 20% 95%;
+    --sidebar-border: 173 35% 25%;
+    --sidebar-ring: 173 58% 50%;
+
+    /* Custom Pharmacy Colors */
+    --pharmacy-teal: 173 58% 39%;
+    --pharmacy-teal-light: 173 45% 85%;
+    --pharmacy-teal-dark: 173 60% 25%;
+    --pharmacy-emerald: 160 60% 45%;
+    --pharmacy-navy: 210 50% 20%;
+    --pharmacy-gold: 38 92% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(173 58% 39%) 0%, hsl(160 60% 45%) 100%);
+    --gradient-sidebar: linear-gradient(180deg, hsl(173 50% 22%) 0%, hsl(173 45% 15%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(180 20% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(180 20% 10% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(180 20% 10% / 0.08), 0 2px 4px -2px hsl(180 20% 10% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(180 20% 10% / 0.1), 0 4px 6px -4px hsl(180 20% 10% / 0.05);
+    --shadow-card: 0 2px 8px -2px hsl(173 58% 39% / 0.1), 0 4px 16px -4px hsl(173 58% 39% / 0.08);
+    --shadow-elevated: 0 20px 40px -12px hsl(180 20% 10% / 0.15);
+  }
+
+  .dark {
+    --background: 180 30% 8%;
+    --foreground: 180 20% 95%;
+
+    --card: 180 25% 12%;
+    --card-foreground: 180 20% 95%;
+
+    --popover: 180 25% 12%;
+    --popover-foreground: 180 20% 95%;
+
+    --primary: 173 58% 50%;
+    --primary-foreground: 180 50% 10%;
+
+    --secondary: 173 30% 20%;
+    --secondary-foreground: 173 30% 85%;
+
+    --muted: 180 20% 18%;
+    --muted-foreground: 180 15% 60%;
+
+    --accent: 38 80% 55%;
+    --accent-foreground: 38 80% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 50%;
+    --success-foreground: 142 60% 10%;
+
+    --warning: 38 80% 55%;
+    --warning-foreground: 38 80% 10%;
+
+    --border: 180 20% 20%;
+    --input: 180 20% 20%;
+    --ring: 173 58% 50%;
+
+    --sidebar-background: 180 30% 6%;
+    --sidebar-foreground: 180 20% 90%;
+    --sidebar-primary: 173 58% 55%;
+    --sidebar-primary-foreground: 180 50% 10%;
+    --sidebar-accent: 180 25% 15%;
+    --sidebar-accent-foreground: 180 20% 90%;
+    --sidebar-border: 180 20% 18%;
+    --sidebar-ring: 173 58% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .pharmacy-card {
+    @apply bg-card rounded-xl border border-border/50 shadow-sm;
+    box-shadow: var(--shadow-card);
+  }
+
+  .pharmacy-card-elevated {
+    @apply bg-card rounded-xl border border-border/30;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .stat-card {
+    @apply relative overflow-hidden rounded-xl p-6 transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground/80 transition-all duration-200;
+  }
+
+  .sidebar-nav-item:hover {
+    @apply bg-sidebar-accent text-sidebar-foreground;
+  }
+
+  .sidebar-nav-item.active {
+    @apply bg-sidebar-primary text-sidebar-primary-foreground font-medium;
+  }
+
+  .table-header {
+    @apply bg-muted/50 text-muted-foreground font-medium text-sm uppercase tracking-wide;
+  }
+
+  .badge-success {
+    @apply bg-success/15 text-success border-success/30;
+  }
+
+  .badge-warning {
+    @apply bg-warning/15 text-warning border-warning/30;
+  }
+
+  .badge-danger {
+    @apply bg-destructive/15 text-destructive border-destructive/30;
+  }
+
+  .input-pharmacy {
+    @apply border-border/60 focus:border-primary focus:ring-primary/20;
+  }
+
+  .btn-pharmacy-primary {
+    background: var(--gradient-primary);
+    @apply text-white font-medium shadow-md hover:shadow-lg transition-all duration-200;
+  }
+
+  .btn-pharmacy-primary:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-sidebar {
+    background: var(--gradient-sidebar);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/30;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s ease-in-out infinite;
+}
