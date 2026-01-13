@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "rm -rf node_modules/.vite dist || true",
     "build": "vite build --force",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
